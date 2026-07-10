@@ -14,7 +14,6 @@ body {
   line-height: 1.2;
   font-weight: 600;
   font-family: "Geist Mono", monospace;
-  /* font-family: "Tilt Warp", sans-serif; */
 }
 
 a {
@@ -31,6 +30,7 @@ button {
   padding: 0;
   border: 0;
   cursor: pointer;
+  color: inherit;
 }
 
 .header {
@@ -44,9 +44,9 @@ button {
 }
 
 .header__inner {
+  padding: 50px 0;
   display: flex;
   justify-content: space-between;
-  padding: 50px 100px;
 }
 
 .header__list {
@@ -65,13 +65,16 @@ button {
 
 .top {
   background-image: url("/images/top-bg.jpg");
-  min-height: calc(100vh - 136px);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .top__inner {
-  padding: 188px 0;
+  min-height: calc(100vh - 136px);
+  display: flex;
+  flex-direction: column;
+  padding: 55px 0;
+  justify-content: center;
   max-width: 900px;
 }
 
@@ -80,6 +83,7 @@ button {
   line-height: 160px;
   padding: 40px 0;
   font-family: "Tilt Warp", sans-serif;
+  text-transform: uppercase;
 }
 
 .top__text {
@@ -89,8 +93,10 @@ button {
 
 .top__btn {
   background-color: #138561;
-  padding: 20px 210px;
-  color: #d6f1ca;
+  /* padding: 20px 210px; */
+  padding: 20px 0;
+  max-width: 608px;
+  font-weight: 600;
 }
 
 .top__btn svg {
