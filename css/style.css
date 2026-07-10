@@ -10,6 +10,11 @@ html {
 
 body {
   color: #d6f1ca;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  font-family: "Geist Mono", monospace;
+  /* font-family: "Tilt Warp", sans-serif; */
 }
 
 a {
@@ -54,4 +59,40 @@ button {
   display: inline-block;
   padding: 10px;
   background-color: #ffffff10;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.top {
+  background-image: url("/images/top-bg.jpg");
+  min-height: calc(100vh - 136px);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.top__inner {
+  padding: 188px 0;
+  max-width: 900px;
+}
+
+.top__title {
+  font-size: 150px;
+  line-height: 160px;
+  padding: 40px 0;
+  font-family: "Tilt Warp", sans-serif;
+}
+
+.top__text {
+  max-width: 500px;
+  padding-bottom: 40px;
+}
+
+.top__btn {
+  background-color: #138561;
+  padding: 20px 210px;
+  color: #d6f1ca;
+}
+
+.top__btn svg {
+  margin-left: 10px;
 }
