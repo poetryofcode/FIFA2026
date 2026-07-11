@@ -151,3 +151,63 @@ button {
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
 }
+
+.players {
+  background-color: #191919;
+  padding: 50px 0;
+}
+
+.players__title {
+  text-align: center;
+  font-size: 100px;
+  line-height: 89px;
+  font-family: "Tilt Warp", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 180px;
+}
+
+.players__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.players__item-box {
+  background-color: #fff;
+  padding: 25px 20px;
+}
+
+.players__item {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  width: 100%;
+  height: 415px;
+}
+
+.players__img {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.players__item-box {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
+}
+
+.players__item-name {
+  font-family: "Tilt Warp", sans-serif;
+  color: #191919;
+  font-size: 36px;
+  padding-bottom: 10px;
+}
+
+.players__item-descr {
+  color: #19191943;
+}
