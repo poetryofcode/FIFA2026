@@ -363,3 +363,101 @@ button {
   display: inline-flex;
   justify-content: flex-end;
 }
+
+@media (max-width: 1700px) {
+  .players__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1000px) {
+  .slider__content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1000px) {
+  .event__list-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .event__title {
+    font-size: 50px;
+    line-height: 73px;
+  }
+  .event {
+    padding: 50px 0;
+  }
+  .players__list {
+    gap: 160px;
+  }
+  .stadium__inner {
+    min-height: 0;
+    gap: 50px;
+  }
+  .stadium__title {
+    font-size: 60px;
+    line-height: 67px;
+  }
+  .stadium__list {
+    display: none;
+  }
+  .ready__title {
+    font-size: 60px;
+    line-height: 70px;
+  }
+  .ready {
+    padding: 100px 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .header__inner {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .top__inner {
+    min-height: 0;
+    padding: 0;
+  }
+  .top__title {
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .event__list {
+    padding: 120px 0 45px;
+  }
+  .event__list-item {
+    gap: 0px;
+  }
+
+  .event__text {
+    display: none;
+  }
+
+  .players {
+    display: none;
+  }
+
+  .slider {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  .header__link {
+    font-size: 12px;
+  }
+  .players {
+    display: none;
+  }
+  .stadium {
+    display: none;
+  }
+}
