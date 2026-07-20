@@ -33,6 +33,12 @@ button {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .header {
   background-color: #191919;
 }
@@ -79,8 +85,8 @@ button {
 }
 
 .top__title {
-  font-size: 150px;
-  line-height: 160px;
+  font-size: clamp(38px, 9vw, 150px);
+  line-height: 1.08;
   padding: 40px 0;
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
@@ -109,10 +115,10 @@ button {
 
 .event__title {
   text-align: center;
-  font-size: 100px;
+  font-size: clamp(30px, 7vw, 100px);
   max-width: 1100px;
   margin: 0 auto 40px;
-  line-height: 89px;
+  line-height: 1.1;
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
@@ -147,7 +153,7 @@ button {
 }
 
 .event__list-item dd {
-  font-size: 150px;
+  font-size: clamp(48px, 12vw, 150px);
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
 }
@@ -160,12 +166,12 @@ button {
 
 .players__title {
   text-align: center;
-  font-size: 100px;
-  line-height: 89px;
+  font-size: clamp(32px, 7vw, 100px);
+  line-height: 1.1;
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
-  margin-bottom: 180px;
+  margin-bottom: clamp(40px, 10vw, 180px);
 }
 
 .players__list {
@@ -239,8 +245,8 @@ button {
 }
 
 .stadium__title {
-  font-size: 100px;
-  line-height: 89px;
+  font-size: clamp(30px, 7vw, 100px);
+  line-height: 1.1;
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
@@ -249,7 +255,9 @@ button {
 
 .stadium__list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 30px;
   font-weight: 500;
   padding-top: 20px;
   border-top: 1px solid grey;
@@ -265,12 +273,11 @@ button {
 }
 
 .ready__title {
-  font-size: 100px;
-  line-height: 89px;
+  font-size: clamp(30px, 7vw, 100px);
+  line-height: 1.1;
   font-family: "Tilt Warp", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
-  margin-bottom: 40px;
   max-width: 785px;
   margin: 0 auto 40px;
 }
@@ -374,6 +381,17 @@ button {
 @media (max-width: 1000px) {
   .slider__content {
     flex-direction: column;
+    gap: 32px;
+    padding: 50px 0;
+  }
+  .slider__btn {
+    top: 60px;
+    width: 48px;
+    height: 48px;
+  }
+  .slider__btn svg {
+    width: 15px;
+    height: auto;
   }
 }
 
@@ -384,30 +402,15 @@ button {
     text-align: center;
     gap: 20px;
   }
-  .event__title {
-    font-size: 50px;
-    line-height: 73px;
-  }
   .event {
     padding: 50px 0;
   }
-  .players__list {
-    gap: 160px;
+  .event__list {
+    padding: 220px 0 60px;
   }
   .stadium__inner {
     min-height: 0;
     gap: 50px;
-  }
-  .stadium__title {
-    font-size: 60px;
-    line-height: 67px;
-  }
-  .stadium__list {
-    display: none;
-  }
-  .ready__title {
-    font-size: 60px;
-    line-height: 70px;
   }
   .ready {
     padding: 100px 0;
@@ -420,16 +423,38 @@ button {
     gap: 20px;
     align-items: center;
   }
+
+  .players__list {
+    gap: 24px;
+  }
+
+  .players__item {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .players__img {
+    position: absolute;
+    inset: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .players__item-box {
+    background-color: #ffffffe6;
+  }
 }
 
 @media (max-width: 550px) {
   .top__inner {
     min-height: 0;
     padding: 0;
-  }
-  .top__title {
-    font-size: 50px;
-    line-height: 60px;
   }
   .event__list {
     padding: 120px 0 45px;
@@ -438,26 +463,39 @@ button {
     gap: 0px;
   }
 
-  .event__text {
-    display: none;
+  .players {
+    padding: 40px 0 60px;
   }
 
-  .players {
-    display: none;
+  .stadium {
+    padding: 30px 0 50px;
+  }
+  .stadium__box {
+    padding: 20px 24px;
   }
 
   .slider {
-    display: none;
+    padding: 50px 0;
+  }
+
+  .ready {
+    padding: 70px 0;
   }
 }
+
 @media (max-width: 450px) {
   .header__link {
     font-size: 12px;
   }
-  .players {
-    display: none;
+  .stadium__item {
+    font-size: 14px;
   }
-  .stadium {
-    display: none;
+  .slider__btn {
+    top: 40px;
+    width: 38px;
+    height: 38px;
+  }
+  .slider__btn svg {
+    width: 12px;
   }
 }
