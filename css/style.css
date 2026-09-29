@@ -58,7 +58,13 @@ img {
 .header__list {
   gap: 5px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   text-transform: uppercase;
+}
+
+.header__link--demo {
+  background-color: #138561;
 }
 
 .header__link {
@@ -98,6 +104,8 @@ img {
 }
 
 .top__btn {
+  display: inline-flex;
+  align-items: center;
   background-color: #138561;
   padding: 20px 0;
   max-width: 608px;
@@ -289,6 +297,8 @@ img {
 }
 
 .ready__btn {
+  display: inline-flex;
+  align-items: center;
   background-color: #138561;
   padding: 15px 20px;
   font-weight: 600;
@@ -422,6 +432,10 @@ img {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+  }
+
+  .header__list {
+    justify-content: center;
   }
 
   .players__list {

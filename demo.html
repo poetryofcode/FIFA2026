@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FIFA 2026 — Interactive Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Tilt+Warp&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+  </head>
+  <body class="demo-body">
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a class="logo" href="index.html">
+            <img class="logo-img" src="images/logo.svg" alt="FIFA" />
+          </a>
+          <nav class="menu" aria-label="Primary">
+            <ul class="header__list">
+              <li class="header__item">
+                <a class="header__link" href="index.html">Home</a>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#teams" data-nav="teams">Teams</a>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#players" data-nav="players">Players</a>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#matches" data-nav="matches">Matches</a>
+              </li>
+              <li class="header__item">
+                <a class="header__link" href="#tickets" data-nav="tickets">Tickets</a>
+              </li>
+              <li class="header__item">
+                <a class="header__link header__link--current" href="demo.html" aria-current="page">Demo</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="demo-main">
+      <section class="coach" aria-live="polite">
+        <p class="coach__kicker">Interactive demo</p>
+        <h1 class="coach__title">FIFA World Cup 2026</h1>
+        <p class="coach__lead">
+          A phone you can actually use. Tap the highlighted control, a card, or
+          a tab. Screens stay put until you do.
+        </p>
+        <div class="coach__card">
+          <p class="coach__step" id="coach-step">01 — Home</p>
+          <h2 id="coach-title">The game that unites millions</h2>
+          <p id="coach-body">
+            Tap Be the part online. The phone moves only when you tap.
+          </p>
+        </div>
+        <div class="chapters" role="tablist" aria-label="Demo chapters">
+          <button type="button" data-chapter="home">Home</button>
+          <button type="button" data-chapter="teams">Teams</button>
+          <button type="button" data-chapter="players">Players</button>
+          <button type="button" data-chapter="matches">Matches</button>
+          <button type="button" data-chapter="match">Stadium</button>
+          <button type="button" data-chapter="tickets">Tickets</button>
+        </div>
+        <p class="coach__note">No autoplay. Every transition starts from a tap.</p>
+      </section>
+
+      <div class="stage">
+        <div class="device" aria-label="FIFA 2026 on iPhone">
+          <span class="device__btn device__btn--silent" aria-hidden="true"></span>
+          <span class="device__btn device__btn--vol-up" aria-hidden="true"></span>
+          <span class="device__btn device__btn--vol-down" aria-hidden="true"></span>
+          <span class="device__btn device__btn--power" aria-hidden="true"></span>
+          <div class="device__shell">
+            <div class="device__screen">
+              <div class="status" aria-hidden="true">
+                <span>9:41</span>
+                <span class="status__icons">
+                  <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+                    <rect x="0" y="8" width="3" height="4" rx="0.6" fill="white" />
+                    <rect x="4.5" y="5.5" width="3" height="6.5" rx="0.6" fill="white" />
+                    <rect x="9" y="3" width="3" height="9" rx="0.6" fill="white" />
+                    <rect x="13.5" y="0" width="3" height="12" rx="0.6" fill="white" />
+                  </svg>
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                    <path d="M8 2.2c2.1 0 4 .8 5.5 2.1l1-1.2C12.6 1.2 10.4.2 8 .2S3.4 1.2 1.5 3.1l1 1.2C4 3 5.9 2.2 8 2.2Z" fill="white" />
+                    <path d="M8 5.4c1.3 0 2.4.5 3.3 1.3l1-1.2C11.1 4.4 9.6 3.8 8 3.8S4.9 4.4 3.7 5.5l1 1.2c.9-.8 2-1.3 3.3-1.3Z" fill="white" />
+                    <path d="M8 8.6c.5 0 1 .2 1.4.6L8 11.2 6.6 9.2c.4-.4.9-.6 1.4-.6Z" fill="white" />
+                  </svg>
+                  <svg width="25" height="12" viewBox="0 0 25 12" fill="none">
+                    <rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="white" />
+                    <rect x="2" y="2" width="16" height="8" rx="1.2" fill="white" />
+                    <path d="M23 4.2v3.6c.7-.3 1.2-1 1.2-1.8s-.5-1.5-1.2-1.8Z" fill="white" />
+                  </svg>
+                </span>
+              </div>
+              <div class="island" id="island">
+                <span class="island__label" id="island-label"></span>
+                <span class="island__cam" aria-hidden="true"></span>
+              </div>
+
+              <div class="viewport">
+                <section class="screen is-active" data-screen="home" aria-label="Home">
+                  <div class="screen__scroll">
+                    <img class="logo-mark rise" src="images/logo.svg" alt="FIFA" />
+                    <p class="kicker rise">The Game That Unites Millions</p>
+                    <h2 class="display rise">FIFA World Cup 2026</h2>
+                    <p class="lede rise">
+                      The best national teams in the world, legendary footballers,
+                      and the atmosphere of great football all in one place.
+                    </p>
+                    <button class="cta rise" type="button" data-go="matches">
+                      Be the part online
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                        <path d="M7.625 4.125H0.625M3.894 7.625L7.51809 4.36364C7.58555 4.30382 7.62373 4.21664 7.62373 4.125C7.62373 4.034 7.58555 3.94682 7.51809 3.88636L3.894 0.625" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <div class="stats">
+                      <button type="button" data-go="teams">
+                        <strong>48</strong>
+                        <span>National Teams</span>
+                      </button>
+                      <button type="button" data-go="matches">
+                        <strong>100+</strong>
+                        <span>Matches</span>
+                      </button>
+                      <button type="button" data-go="tickets">
+                        <strong>1ml</strong>
+                        <span>Fans Worldwide</span>
+                      </button>
+                    </div>
+                    <h3 class="row-label">Star Players</h3>
+                    <div class="plist">
+                      <button type="button" data-player="mercier">
+                        <img src="images/player-1.png" alt="" />
+                        <span><strong>Louis Mercier</strong><small>Captain, Tokyo Warriors</small></span>
+                      </button>
+                      <button type="button" data-player="ronaldo">
+                        <img src="images/player-2.png" alt="" />
+                        <span><strong>Cristiano Ronaldo</strong><small>Symbol of discipline, speed</small></span>
+                      </button>
+                      <button type="button" data-player="mbappe">
+                        <img src="images/player-3.png" alt="" />
+                        <span><strong>Kylian Mbappé</strong><small>New generation of football</small></span>
+                      </button>
+                      <button type="button" data-player="bellingham">
+                        <img src="images/player-4.png" alt="" />
+                        <span><strong>Jude Bellingham</strong><small>Key player of world class</small></span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" data-screen="teams" id="teams" aria-label="Teams">
+                  <div class="screen__scroll">
+                    <div class="banner">
+                      <h2 class="display">The Biggest Football Event On Earth</h2>
+                    </div>
+                    <p class="subhead">
+                      The World Cup is more than just soccer. It's the emotions, the
+                      tension of every match, and the stories that become legends.
+                      From the group stage to the final, millions of fans follow
+                      every second of the game.
+                    </p>
+                    <div class="filters" role="group" aria-label="Filter teams">
+                      <button class="chip is-selected" type="button" data-filter="all" aria-pressed="true">All 48</button>
+                      <button class="chip" type="button" data-filter="hosts" aria-pressed="false">Hosts</button>
+                    </div>
+                    <button class="team" type="button" data-team="usa" data-host="true">
+                      <span class="crest">USA</span>
+                      <span><strong>United States</strong><small>Host · vs Mexico</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="mex" data-host="true">
+                      <span class="crest">MEX</span>
+                      <span><strong>Mexico</strong><small>Host · vs United States</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="can" data-host="true">
+                      <span class="crest">CAN</span>
+                      <span><strong>Canada</strong><small>Host · vs Japan</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="bra" data-host="false">
+                      <span class="crest">BRA</span>
+                      <span><strong>Brazil</strong><small>vs France · Live</small></span>
+                      <span class="badge">Live</span>
+                    </button>
+                    <button class="team" type="button" data-team="fra" data-host="false">
+                      <span class="crest">FRA</span>
+                      <span><strong>France</strong><small>vs Brazil · Live</small></span>
+                      <span class="badge">Live</span>
+                    </button>
+                    <button class="team" type="button" data-team="arg" data-host="false">
+                      <span class="crest">ARG</span>
+                      <span><strong>Argentina</strong><small>vs England · Tonight</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="eng" data-host="false">
+                      <span class="crest">ENG</span>
+                      <span><strong>England</strong><small>vs Argentina · Tonight</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="por" data-host="false">
+                      <span class="crest">POR</span>
+                      <span><strong>Portugal</strong><small>vs Spain · Tomorrow</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="esp" data-host="false">
+                      <span class="crest">ESP</span>
+                      <span><strong>Spain</strong><small>vs Portugal · Tomorrow</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="jpn" data-host="false">
+                      <span class="crest">JPN</span>
+                      <span><strong>Japan</strong><small>vs Canada</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="ger" data-host="false">
+                      <span class="crest">GER</span>
+                      <span><strong>Germany</strong><small>vs Morocco</small></span>
+                    </button>
+                    <button class="team" type="button" data-team="mar" data-host="false">
+                      <span class="crest">MAR</span>
+                      <span><strong>Morocco</strong><small>vs Germany</small></span>
+                    </button>
+                  </div>
+                </section>
+
+                <section class="screen screen--detail" data-screen="team" aria-label="Team">
+                  <div class="screen__scroll">
+                    <button class="back" type="button" data-action="back">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                        <path d="M1.375 4.875H8.375M5.106 1.375L1.48191 4.63636C1.41445 4.69618 1.37627 4.78336 1.37627 4.875C1.37627 4.966 1.41445 5.05318 1.48191 5.11364L5.106 8.375" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      National Teams
+                    </button>
+                    <div class="hero-crest" id="team-code">BRA</div>
+                    <h2 class="display center" id="team-name">Brazil</h2>
+                    <p class="lede center" id="team-next">vs France · Live</p>
+                    <div class="stack">
+                      <button class="cta" type="button" data-open-match>Open fixture</button>
+                      <button class="cta cta--ghost" type="button" id="team-star" data-player="mbappe" hidden>Star player</button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" data-screen="players" id="players" aria-label="Players">
+                  <div class="screen__scroll">
+                    <p class="kicker">Legendary footballers</p>
+                    <h2 class="display">Star Players</h2>
+                    <div class="players-grid">
+                      <button class="pcard" type="button" data-player="mercier">
+                        <img src="images/player-1.png" alt="" />
+                        <span class="caption">
+                          <strong>Louis Mercier</strong>
+                          <span>Captain, Tokyo Warriors</span>
+                        </span>
+                      </button>
+                      <button class="pcard" type="button" data-player="ronaldo">
+                        <img src="images/player-2.png" alt="" />
+                        <span class="caption">
+                          <strong>Cristiano Ronaldo</strong>
+                          <span>Symbol of discipline, speed</span>
+                        </span>
+                      </button>
+                      <button class="pcard" type="button" data-player="mbappe">
+                        <img src="images/player-3.png" alt="" />
+                        <span class="caption">
+                          <strong>Kylian Mbappé</strong>
+                          <span>New generation of football</span>
+                        </span>
+                      </button>
+                      <button class="pcard" type="button" data-player="bellingham">
+                        <img src="images/player-4.png" alt="" />
+                        <span class="caption">
+                          <strong>Jude Bellingham</strong>
+                          <span>Key player of world class</span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen screen--detail" data-screen="player" aria-label="Player">
+                  <div class="screen__scroll">
+                    <button class="back" type="button" data-action="back">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                        <path d="M1.375 4.875H8.375M5.106 1.375L1.48191 4.63636C1.41445 4.69618 1.37627 4.78336 1.37627 4.875C1.37627 4.966 1.41445 5.05318 1.48191 5.11364L5.106 8.375" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      Star Players
+                    </button>
+                    <figure class="hero-photo">
+                      <img id="player-photo" src="images/player-1.png" alt="Louis Mercier" />
+                      <figcaption>
+                        <strong id="player-name">Louis Mercier</strong>
+                        <span id="player-role">Captain, Tokyo Warriors</span>
+                      </figcaption>
+                    </figure>
+                    <div class="stack">
+                      <button class="cta cta--ghost" type="button" id="follow" data-follow aria-pressed="false">Follow</button>
+                      <button class="cta" type="button" data-open-highlights>HD Highlights</button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" data-screen="matches" id="matches" aria-label="Matches">
+                  <div class="screen__scroll">
+                    <p class="kicker">100+ matches</p>
+                    <h2 class="display">Live Match Updates</h2>
+                    <p class="subhead">
+                      From the group stage to the final, millions of fans follow
+                      every second of the game.
+                    </p>
+                    <button class="fixture" type="button" data-match="bra-fra">
+                      <span class="crest">2–1</span>
+                      <span><strong>Brazil vs France</strong><small>67' · Group stage</small></span>
+                      <span class="badge"><span class="live-dot" aria-hidden="true"></span> Live</span>
+                    </button>
+                    <button class="fixture" type="button" data-match="arg-eng">
+                      <span class="crest">vs</span>
+                      <span><strong>Argentina vs England</strong><small>Tonight</small></span>
+                      <span class="badge badge--soon">Tonight</span>
+                    </button>
+                    <button class="fixture" type="button" data-match="usa-mex">
+                      <span class="crest">vs</span>
+                      <span><strong>United States vs Mexico</strong><small>Hosts · Saturday</small></span>
+                      <span class="badge badge--soon">Upcoming</span>
+                    </button>
+                    <button class="fixture" type="button" data-match="por-esp">
+                      <span class="crest">vs</span>
+                      <span><strong>Portugal vs Spain</strong><small>Tomorrow</small></span>
+                      <span class="badge badge--soon">Upcoming</span>
+                    </button>
+                  </div>
+                </section>
+
+                <section class="screen screen--detail" data-screen="match" aria-label="Stadium">
+                  <div class="screen__scroll">
+                    <button class="back" type="button" data-action="back">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                        <path d="M1.375 4.875H8.375M5.106 1.375L1.48191 4.63636C1.41445 4.69618 1.37627 4.78336 1.37627 4.875C1.37627 4.966 1.41445 5.05318 1.48191 5.11364L5.106 8.375" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      Matches
+                    </button>
+                    <p class="kicker">Feel The Stadium Atmosphere</p>
+                    <div class="scoreboard">
+                      <div>
+                        <p class="scoreboard__code" id="match-home-code">BRA</p>
+                        <p class="scoreboard__name" id="match-home-name">Brazil</p>
+                      </div>
+                      <div>
+                        <p class="scoreboard__score" id="match-score">2–1</p>
+                        <p class="scoreboard__meta" id="match-minute">67'</p>
+                      </div>
+                      <div>
+                        <p class="scoreboard__code" id="match-away-code">FRA</p>
+                        <p class="scoreboard__name" id="match-away-name">France</p>
+                      </div>
+                    </div>
+                    <p class="subhead" id="match-venue">Group stage</p>
+                    <p class="subhead">
+                      The loud stands, the tension of the final moments, and the
+                      energy of thousands of fans create an unforgettable atmosphere
+                      that cannot be replicated outside the stadium.
+                    </p>
+                    <div class="chips" role="tablist" aria-label="Stadium features">
+                      <button class="chip is-selected" type="button" role="tab" data-panel="live" aria-selected="true">Live Match Updates</button>
+                      <button class="chip" type="button" role="tab" data-panel="fans" aria-selected="false">Fan Community</button>
+                      <button class="chip" type="button" role="tab" data-panel="stats" aria-selected="false">Match Statistics</button>
+                      <button class="chip" type="button" role="tab" data-panel="hd" aria-selected="false">HD Highlights</button>
+                    </div>
+                    <div class="panels">
+                      <div class="panel is-on" data-panel-view="live">
+                        <p id="live-copy">From the group stage to the final, millions of fans follow every second of the game.</p>
+                        <p>67' — The stadium lifts.</p>
+                        <p>54' — A chance at the far post.</p>
+                        <p>41' — Another roar from the stands.</p>
+                      </div>
+                      <div class="panel quote" data-panel-view="fans">
+                        <img src="images/slider-img.jpg" alt="" />
+                        <p>
+                          Playing in this championship felt like stepping onto the
+                          biggest football stage in the world. Every match brought
+                          incredible energy, packed stadiums, and unforgettable
+                          moments that pushed our team to perform at the highest
+                          level.
+                        </p>
+                        <p>
+                          From the organization of the tournament to the atmosphere
+                          created by the fans, everything was handled professionally
+                          and made the entire experience feel truly world-class.
+                        </p>
+                        <footer>— Alex Romero<br />Captain of Global United FC</footer>
+                      </div>
+                      <div class="panel" data-panel-view="stats">
+                        <div class="bar"><span>Hold</span><i><span style="--w: 58%"></span></i><span>58</span></div>
+                        <div class="bar"><span>Shots</span><i><span style="--w: 64%"></span></i><span>14</span></div>
+                        <div class="bar"><span>Chances</span><i><span style="--w: 42%"></span></i><span>7</span></div>
+                        <p>Match statistics, updated with the game.</p>
+                      </div>
+                      <div class="panel" data-panel-view="hd">
+                        <div class="highlight">
+                          <img src="images/stadium-bg.jpg" alt="" />
+                          <button type="button" data-highlight aria-pressed="false">
+                            <span class="play" aria-hidden="true">
+                              <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+                                <path d="M1 1.5v13l12-6.5L1 1.5Z" fill="white" />
+                              </svg>
+                            </span>
+                          </button>
+                        </div>
+                        <p id="highlight-frame" hidden>
+                          HD highlight. The loud stands and the tension of the final moments.
+                        </p>
+                      </div>
+                    </div>
+                    <button class="cta" type="button" data-go="tickets">
+                      Ready For The Next Match?
+                    </button>
+                  </div>
+                </section>
+
+                <section class="screen" data-screen="tickets" id="tickets" aria-label="Tickets">
+                  <div class="screen__scroll">
+                    <div class="banner banner--ready">
+                      <h2 class="display">Ready For The Next Match?</h2>
+                    </div>
+                    <p class="subhead">
+                      Follow the main matches of the tournament and support your
+                      favorite team along with millions of fans around the world.
+                    </p>
+                    <h3 class="row-label">Match</h3>
+                    <div class="choices">
+                      <button class="choice is-selected" type="button" data-ticket-match="bra-fra">
+                        Brazil vs France
+                        <small>Live now</small>
+                      </button>
+                      <button class="choice" type="button" data-ticket-match="arg-eng">
+                        Argentina vs England
+                        <small>Tonight</small>
+                      </button>
+                      <button class="choice" type="button" data-ticket-match="usa-mex">
+                        United States vs Mexico
+                        <small>Hosts · Saturday</small>
+                      </button>
+                    </div>
+                    <h3 class="row-label">Support</h3>
+                    <div class="choices">
+                      <button class="choice is-selected" type="button" data-ticket-side="France">France</button>
+                      <button class="choice" type="button" data-ticket-side="Brazil">Brazil</button>
+                      <button class="choice" type="button" data-ticket-side="United States">United States</button>
+                    </div>
+                    <button class="cta" type="button" data-confirm>
+                      Be the part online
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" aria-hidden="true">
+                        <path d="M7.625 4.125H0.625M3.894 7.625L7.51809 4.36364C7.58555 4.30382 7.62373 4.21664 7.62373 4.125C7.62373 4.034 7.58555 3.94682 7.51809 3.88636L3.894 0.625" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="sheet" id="sheet">
+                    <button class="sheet__scrim" type="button" data-sheet-close aria-label="Dismiss"></button>
+                    <div class="sheet__card">
+                      <svg class="check" viewBox="0 0 46 46" aria-hidden="true">
+                        <circle cx="23" cy="23" r="23" />
+                        <path d="M13 24.5 20 31l13-16" />
+                      </svg>
+                      <h3>You're in</h3>
+                      <p id="sheet-detail"></p>
+                      <button class="cta sheet-go" type="button" data-go="matches">Live Match Updates</button>
+                      <button class="cta cta--ghost" type="button" data-sheet-close>Keep browsing</button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <nav class="tabbar" aria-label="Phone">
+                <button type="button" data-tab="home" class="is-current" aria-current="page">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                  Home
+                </button>
+                <button type="button" data-tab="teams">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v6c0 4.2 2.8 7.4 7 8.5 4.2-1.1 7-4.3 7-8.5V6l-7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                  Teams
+                </button>
+                <button type="button" data-tab="players">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 19.5c1.2-3 3.4-4.5 6.5-4.5s5.3 1.5 6.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  Players
+                </button>
+                <button type="button" data-tab="matches">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 4.2 13.4 8h3.8l-3 2.3 1.2 3.7L12 11.8 8.6 14l1.2-3.7-3-2.3h3.8L12 4.2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                  Matches
+                </button>
+                <button type="button" data-tab="tickets">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h11A2.5 2.5 0 0 1 20 8.5V10a2 2 0 0 0 0 4v1.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 15.5V14a2 2 0 0 0 0-4V8.5Z" stroke="currentColor" stroke-width="1.6"/></svg>
+                  Tickets
+                </button>
+              </nav>
+              <div class="homebar" aria-hidden="true"></div>
+              <div class="device__glass" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/demo.js"></script>
+  </body>
+</html>
